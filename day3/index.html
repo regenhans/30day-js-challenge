@@ -42,19 +42,19 @@
 		<img src="bridge.jpg" class="bridge" alt="">
 
 		<script type="text/javascript">
-			var root = window.getComputedStyle(document.body);
+			var root = document.documentElement;
 
 			function spaceChange(value) {
 				var newspace = value+'px';
-				document.documentElement.style.setProperty('--space', newspace)
+				root.style.setProperty('--space', newspace)
 			}
 			function blurChange(value) {
 				var newblur = value+'px';
-				document.documentElement.style.setProperty('--blur', newblur)
+				root.style.setProperty('--blur', newblur)
 			}
 			function colorChange(value) {
 				var newcolor = value;
-				document.documentElement.style.setProperty('--basecolor', newcolor)
+				root.style.setProperty('--basecolor', newcolor)
 			}
 
 
