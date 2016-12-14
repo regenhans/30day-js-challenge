@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style media="screen">
+			:root{
+				--basecolor: #ffc600;
+				--space: 15px;
+				--blur: 10px;
+			}
+			html, body{
+				margin: auto;
+				text-align: center;
+			}
+			.js{
+				color: var(--basecolor);
+			}
+			.bridge{
+				background: var(--basecolor);
+				max-width: 800px;
+				margin-top: 20px;
+				padding: var(--space);
+				filter: blur(var(--blur))
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Updating CSS variables in <span class='js'>JS</span></h1>
+
+		<div class="controls">
+			<label for="spacing">Spacing</label>
+			<input type="range" name="spacing" min="10" max="200"  value="10" data-sizing="px" oninput="spaceChange(this.value)">
+
+			<label for="blur">Blur</label>
+			<input type="range" name="blur" min="0" max="200"  value="10" data-sizing="px" oninput="blurChange(this.value)">
+
+			<label for="color">Color</label>
+			<input type="color" name="basecolor" value="#ffc600" oninput="colorChange(this.value)">
+		</div>
+
+		<img src="bridge.jpg" class="bridge" alt="">
+
+		<script type="text/javascript">
+			var root = window.getComputedStyle(document.body);
+
+			function spaceChange(value) {
+				var newspace = value+'px';
+				document.documentElement.style.setProperty('--space', newspace)
+			}
+			function blurChange(value) {
+				var newblur = value+'px';
+				document.documentElement.style.setProperty('--blur', newblur)
+			}
+			function colorChange(value) {
+				var newcolor = value;
+				document.documentElement.style.setProperty('--basecolor', newcolor)
+			}
+
+
+		</script>
+	</body>
+</html>
